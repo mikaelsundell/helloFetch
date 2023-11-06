@@ -5,18 +5,15 @@
 #pragma once
 
 #if defined(_WIN32)
-    #if defined(HELLOFETCH_EXPORTS)
-        #define HELLOFETCH_EXPORT __declspec(dllexport)
-        #define HELLOFETCH_EXPORT extern __declspec(dllexport)
-    #else
-        #define HELLOFETCH_EXPORT __declspec(dllimport)
-        #define HELLOFETCH_EXPORT extern __declspec(dllimport)
-    #endif
+#   define HELLOCONFIG_IMPORT __declspec(dllimport)
+#   define HELLOCONFIG_EXPORT __declspec(dllexport)
 #else
-    #define HELLOFETCH_EXPORT
-    #define HELLOFETCH_EXPORT_CONST extern
+#   define HELLOCONFIG_IMPORT __attribute__((visibility("default")))
+#   define HELLOCONFIG_EXPORT __attribute__((visibility("default")))
 #endif
 
-
-
-
+#if defined(HELLOFETCH_EXPORTS)
+#    define HELLOFETCH_API HELLOCONFIG_EXPORT
+#else
+#    define HELLOFETCH_API HELLOCONFIG_IMPORT
+#endif

@@ -7,7 +7,7 @@
 #include <helloFetch/helloConfig.h>
 #include <iostream>
 
-class HELLOFETCH_EXPORT helloFetch
+class HELLOFETCH_API helloFetch
 {
     public:
         helloFetch();
