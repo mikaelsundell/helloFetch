@@ -4,9 +4,10 @@
 
 #pragma once
 
+#include <helloFetch/helloConfig.h>
 #include <iostream>
 
-class helloFetch
+class HELLOFETCH_EXPORT helloFetch
 {
     public:
         helloFetch();

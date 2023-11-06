@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // https://github.com/mikaelsundell/helloWorld
 
-#include "helloFetch.h"
+#include <helloFetch/helloFetch.h>
 
 helloFetch::helloFetch()
 {
