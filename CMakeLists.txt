@@ -36,17 +36,15 @@ target_sources (
     PRIVATE ${sources}
 )
 
+# config
 target_include_directories (
     helloFetch
-    PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
 )
 
 install(
     TARGETS helloFetch
-    EXPORT MyLibraryTargets
+    EXPORT "helloFetch"
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
     RUNTIME DESTINATION bin
