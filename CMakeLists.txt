@@ -24,7 +24,7 @@ dump_configuration (${project_name})
 file(GLOB_RECURSE sources "*.cpp")
 file(GLOB_RECURSE headers "*.h")
 set (CMAKE_DEBUG_POSTFIX "_debug" )
-set (project_name "helloFetch")
+
 add_library (
     helloFetch 
     SHARED
@@ -38,7 +38,7 @@ target_sources (
 # config
 target_include_directories (
     helloFetch
-    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 )
 
 install(
