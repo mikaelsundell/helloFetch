@@ -43,7 +43,7 @@ target_include_directories (
 
 install(
     TARGETS helloFetch
-    EXPORT helloFetch
+    EXPORT helloFetchTarget
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
