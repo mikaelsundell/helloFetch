@@ -26,17 +26,23 @@ set (sources
     helloFetch.h
 )
 
-add_library (helloFetch SHARED)
-target_sources (helloFetch PRIVATE ${sources})
-
-target_include_directories(helloFetch
-    PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+add_library (
+    helloFetch 
+    SHARED
 )
 
-target_compile_features(helloFetch PUBLIC cxx_std_17)
+target_sources (
+    helloFetch 
+    PRIVATE ${sources}
+)
+
+target_include_directories (
+    helloFetch
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    PRIVATE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+)
 
 install(
     TARGETS helloFetch
