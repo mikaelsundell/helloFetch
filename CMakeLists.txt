@@ -50,6 +50,8 @@ target_include_directories (
     INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 )
 
+add_library(helloFetch::Config ALIAS helloFetchConfig)
+
 install(
     TARGETS helloFetch
     EXPORT "helloFetch"
