@@ -37,9 +37,17 @@ target_sources (
 )
 
 # config
+add_library(helloFetchConfig INTERFACE)
+
+target_include_directories(
+    helloFetchConfig INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+)
+
 target_include_directories (
     helloFetch
-    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 )
 
 install(
