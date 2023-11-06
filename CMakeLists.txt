@@ -21,11 +21,10 @@ endif ()
 dump_configuration (${project_name})
 
 # helloFetch
-set (sources
-    helloFetch.cpp
-    helloFetch.h
-)
-
+file(GLOB_RECURSE sources "*.cpp")
+file(GLOB_RECURSE headers "*.h")
+set (CMAKE_DEBUG_POSTFIX "_debug" )
+set (project_name "helloFetch")
 add_library (
     helloFetch 
     SHARED
@@ -37,26 +36,18 @@ target_sources (
 )
 
 # config
-add_library(helloFetchConfig INTERFACE)
-
-target_include_directories(
-    helloFetchConfig INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-)
-
 target_include_directories (
     helloFetch
-    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${project_name}
 )
-
-add_library(helloFetch::Config ALIAS helloFetchConfig)
 
 install(
     TARGETS helloFetch
-    EXPORT "helloFetch"
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    RUNTIME DESTINATION bin
-    INCLUDES DESTINATION include
-)
+    EXPORT helloFetch
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    PUBLIC_HEADER
+      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${project_name}
+  )
