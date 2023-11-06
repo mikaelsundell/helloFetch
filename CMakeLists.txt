@@ -38,9 +38,23 @@ target_sources (
 # config
 target_include_directories (
     helloFetch
-    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+)
+set_property(
+    TARGET helloFetch 
+    PROPERTY PUBLIC_HEADER ${headers}
 )
 
+# target_link_libraries(
+#     helloFetch
+#     PUBLIC
+#         Library1
+#         Library1
+#)
+
+# install
+include(GNUInstallDirs)
 install(
     TARGETS helloFetch
     EXPORT helloFetchTarget
@@ -49,5 +63,5 @@ install(
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     PUBLIC_HEADER
-      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/helloFetch
-  )
+      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
