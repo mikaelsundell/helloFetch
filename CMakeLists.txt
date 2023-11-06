@@ -38,7 +38,7 @@ target_sources (
 # config
 target_include_directories (
     helloFetch
-    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${project_name}
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 install(
@@ -49,5 +49,5 @@ install(
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     PUBLIC_HEADER
-      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${project_name}
+      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/helloFetch
   )
