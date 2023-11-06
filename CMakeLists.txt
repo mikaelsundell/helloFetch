@@ -26,5 +26,23 @@ set (sources
     helloFetch.h
 )
 
-add_library(${project_name} SHARED ${sources})
-set_property(TARGET ${project_name} PROPERTY CXX_STANDARD 17)
+add_library (helloFetch SHARED)
+target_sources (helloFetch PRIVATE ${sources})
+
+target_include_directories(helloFetch
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+)
+
+target_compile_features(helloFetch PUBLIC cxx_std_17)
+
+install(
+    TARGETS helloFetch
+    EXPORT MyLibraryTargets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include
+)
