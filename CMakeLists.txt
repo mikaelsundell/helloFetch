@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # https://github.com/mikaelsundell/helloFetch
 
-cmake_minimum_required (VERSION 3.23)
+cmake_minimum_required (VERSION 3.22)
 
 project ("helloFetch")
 set (soname "10")
