@@ -6,7 +6,7 @@ Readme for helloFetch
 Introduction
 ------------
 
-helloFetch is a test application to verify Git and CI functionality.
+HelloFetch is a test application to verify Git and CI functionality.
 
 Building
 --------
